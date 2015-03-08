@@ -26,7 +26,7 @@ validData$DateTime <- datetimes
 par(mfrow=c(2,2))
 
 #Upper left plot
-plot(validData$DateTime, validData$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+plot(validData$DateTime, validData$Global_active_power, type="l", xlab="", ylab="Global Active Power")
 
 #Upper right plot
 plot(validData$DateTime, validData$Voltage, type="l", ylab="Voltage", xlab="datetime")
