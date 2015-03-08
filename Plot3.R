@@ -18,15 +18,12 @@ dates <- validData[,1]
 times <- validData[,2]
 datetimes <- strptime(paste(dates,times), "%d/%m/%Y %H:%M:%S")
 
-#Add new DateTime column to data
-validData$DateTime <- datetimes
-
 #create the chart
-plot(validData$DateTime, validData$Sub_metering_1, type="n", xlab="", ylab="Energy sub metering")
+plot(datetimes, validData$Sub_metering_1, type="n", xlab="", ylab="Energy sub metering")
 
-lines(validData$DateTime, validData$Sub_metering_1, type="l", col="black")
-lines(validData$DateTime, validData$Sub_metering_2, type="l", col="red")
-lines(validData$DateTime, validData$Sub_metering_3, type="l", col="blue")
+lines(datetimes, validData$Sub_metering_1, type="l", col="black")
+lines(datetimes, validData$Sub_metering_2, type="l", col="red")
+lines(datetimes, validData$Sub_metering_3, type="l", col="blue")
 
 legend("topright", col=c("black", "red", "blue"), lty=1, legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 

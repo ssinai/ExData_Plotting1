@@ -18,9 +18,6 @@ dates <- validData[,1]
 times <- validData[,2]
 datetimes <- strptime(paste(dates,times), "%d/%m/%Y %H:%M:%S")
 
-#Add new DateTime column to data
-validData$DateTime <- datetimes
-
-plot(validData$DateTime, validData$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+plot(datetimes, validData$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
 
 dev.off()

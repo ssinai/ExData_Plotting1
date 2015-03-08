@@ -19,26 +19,23 @@ dates <- validData[,1]
 times <- validData[,2]
 datetimes <- strptime(paste(dates,times), "%d/%m/%Y %H:%M:%S")
 
-#Add new DateTime column to data
-validData$DateTime <- datetimes
-
 #Create 2x2 canvas for the 4 plots
 par(mfrow=c(2,2))
 
 #Upper left plot
-plot(validData$DateTime, validData$Global_active_power, type="l", xlab="", ylab="Global Active Power")
+plot(datetimes, validData$Global_active_power, type="l", xlab="", ylab="Global Active Power")
 
 #Upper right plot
-plot(validData$DateTime, validData$Voltage, type="l", ylab="Voltage", xlab="datetime")
+plot(datetimes, validData$Voltage, type="l", ylab="Voltage", xlab="datetime")
 
 #Lower left plot
-plot(validData$DateTime, validData$Sub_metering_1, type="n", xlab="", ylab="Energy sub metering")
-lines(validData$DateTime, validData$Sub_metering_1, type="l", col="black")
-lines(validData$DateTime, validData$Sub_metering_2, type="l", col="red")
-lines(validData$DateTime, validData$Sub_metering_3, type="l", col="blue")
+plot(datetimes, validData$Sub_metering_1, type="n", xlab="", ylab="Energy sub metering")
+lines(datetimes, validData$Sub_metering_1, type="l", col="black")
+lines(datetimes, validData$Sub_metering_2, type="l", col="red")
+lines(datetimes, validData$Sub_metering_3, type="l", col="blue")
 legend("topright", col=c("black", "red", "blue"), bty="n", lty=1, legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 #Lower right plot
-plot(validData$DateTime, validData$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
+plot(datetimes, validData$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
 
 dev.off()
