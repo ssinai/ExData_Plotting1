@@ -17,11 +17,12 @@ png(filename="plot4.png", width=480, height=480)
 #Combine separate date and time column data into combined DateTime column.
 dates <- validData[,1]
 times <- validData[,2]
-datetimes <- paste(dates, times)
-newdates <- strptime(datetimes, "%d/%m/%Y %H:%M:%S")
+datetimes <- strptime(paste(dates,times), "%d/%m/%Y %H:%M:%S")
 
 #Add new DateTime column to data
-validData$DateTime <- newdates
+validData$DateTime <- datetimes
+
+#Create 2x2 canvas for the 4 plots
 par(mfrow=c(2,2))
 
 #Upper left plot
