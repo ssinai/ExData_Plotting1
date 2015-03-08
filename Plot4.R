@@ -33,7 +33,8 @@ plot(datetimes, validData$Sub_metering_1, type="n", xlab="", ylab="Energy sub me
 lines(datetimes, validData$Sub_metering_1, type="l", col="black")
 lines(datetimes, validData$Sub_metering_2, type="l", col="red")
 lines(datetimes, validData$Sub_metering_3, type="l", col="blue")
-legend("topright", col=c("black", "red", "blue"), bty="n", lty=1, legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", col=c("black", "red", "blue"), bty="n", lty=1, 
+       legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 #Lower right plot
 plot(datetimes, validData$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
